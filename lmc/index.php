@@ -53,11 +53,12 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-  if ($_SERVER[SERVER_NAME] != 'lmc.com') {
-    define('ENVIRONMENT', 'development');
-  } else {
-    define('ENVIRONMENT', 'production');
-  }
+
+if (in_array($_SERVER['SERVER_NAME'], array('localhost', '127.0.0.1'))) {
+  define('ENVIRONMENT', 'development');
+} else {
+  define('ENVIRONMENT', 'production');
+}
 	
 /*
  *---------------------------------------------------------------
